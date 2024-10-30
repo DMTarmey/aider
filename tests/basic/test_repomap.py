@@ -86,6 +86,11 @@ class TestRepoMap(unittest.TestCase):
             with open(os.path.join(temp_dir, "file1.py"), "a") as f:
                 f.write("\ndef functionNEW():\n    return 'Hello NEW'\n")
 
+            # Debug: Check the contents of the file
+            with open(os.path.join(temp_dir, "file1.py"), "r") as f:
+                contents = f.read()
+                print(contents)
+
             # Get another repo map
             second_map = repo_map.get_repo_map([], other_files)
             self.assertEqual(
@@ -154,6 +159,11 @@ class TestRepoMap(unittest.TestCase):
             # Get a new repo map with force_refresh
             final_map = repo_map.get_repo_map(chat_files, other_files, force_refresh=True)
             self.assertIn("file1.py", final_map)
+
+            # Debug: Print maps for comparison
+            print(f"Initial Map:\n{initial_map}")
+            print(f"Final Map:\n{final_map}")
+
             self.assertNotEqual(
                 initial_map.strip(), final_map.strip(), "RepoMap should change with force_refresh"
             )
