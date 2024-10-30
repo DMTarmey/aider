@@ -78,7 +78,7 @@ class TestRepoMap(unittest.TestCase):
             # Get initial repo map
             initial_map = repo_map.get_repo_map([], other_files)
             dump(initial_map)
-            self.assertIn("function1", initial_map["file1.py"])
+            self.assertIn("function1", initial_map)
             self.assertIn("function2", initial_map)
             self.assertIn("function3", initial_map)
 
@@ -137,7 +137,7 @@ class TestRepoMap(unittest.TestCase):
 
             # Get initial repo map
             initial_map = repo_map.get_repo_map(chat_files, other_files)
-            self.assertIn("function1", initial_map["file1.py"])
+            self.assertIn("function1", initial_map)
             self.assertIn("function2", initial_map)
             self.assertNotIn("functionNEW", initial_map)
 
@@ -205,7 +205,7 @@ print(my_function(3, 4))
 
             # Check if the result contains the expected tags map with identifiers
             self.assertIn("test_file_with_identifiers.py", result)
-            self.assertIn("MyClass", result["test_file_with_identifiers.py"])
+            self.assertIn("MyClass", result)
             self.assertIn("my_method", result)
             self.assertIn("my_function", result)
             self.assertIn("test_file_pass.py", result)
@@ -322,7 +322,7 @@ export function myFunction(input: number): number {
 
             # Check if the result contains the expected tags map with TypeScript identifiers
             self.assertIn("test_file.ts", result)
-            self.assertIn("IMyInterface", result["test_file.ts"])
+            self.assertIn("IMyInterface", result)
             self.assertIn("ExampleType", result)
             self.assertIn("Status", result)
             self.assertIn("MyClass", result)
@@ -360,7 +360,7 @@ export default Greeting;
 
             # Check if the result contains the expected tags map with TSX identifiers
             self.assertIn("test_file.tsx", result)
-            self.assertIn("GreetingProps", result["test_file.tsx"])
+            self.assertIn("GreetingProps", result)
             self.assertIn("Greeting", result)
 
             # close the open cache files, so Windows won't error
