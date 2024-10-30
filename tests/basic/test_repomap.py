@@ -154,7 +154,9 @@ class TestRepoMap(unittest.TestCase):
             # Get a new repo map with force_refresh
             final_map = repo_map.get_repo_map(chat_files, other_files, force_refresh=True)
             self.assertIn("file1.py", final_map)
-            self.assertNotEqual(initial_map, final_map, "RepoMap should change with force_refresh")
+            self.assertNotEqual(
+                initial_map.strip(), final_map.strip(), "RepoMap should change with force_refresh"
+            )
 
             # close the open cache files, so Windows won't error
             del repo_map
