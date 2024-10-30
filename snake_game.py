@@ -37,6 +37,8 @@ def our_snake(snake_block, snake_list):
 def display_score(score):
     value = score_font.render("Your Score: " + str(score), True, white)
     dis.blit(value, [0, 0])
+
+def message(msg, color):
     mesg = font_style.render(msg, True, color)
     dis.blit(mesg, [dis_width / 6, dis_height / 3])
 
