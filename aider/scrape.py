@@ -268,6 +268,6 @@ def main(url):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python playw.py <URL>")
+        print("Usage: python -m aider.scrape <URL>")
         sys.exit(1)
     main(sys.argv[1])
