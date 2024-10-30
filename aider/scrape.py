@@ -260,10 +260,15 @@ def slimdown_html(soup):
     return soup
 
 
-def main(url):
+def main(url, output_file="scraped_content.md"):
     scraper = Scraper()
     content = scraper.scrape(url)
-    print(content)
+    if content:
+        with open(output_file, "w", encoding="utf-8") as f:
+            f.write(content)
+        print(f"Content saved to {output_file}")
+    else:
+        print("Failed to scrape content.")
 
 
 if __name__ == "__main__":
