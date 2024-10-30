@@ -169,6 +169,7 @@ class TestRepoMap(unittest.TestCase):
             )
             self.assertIn("functionNEW", final_map, "New function should be in the final map")
             self.assertIn("functionNEW", final_map, "New function should be in the final map")
+            self.assertIn("functionNEW", final_map, "New function should be in the final map")
 
             # close the open cache files, so Windows won't error
             del repo_map
