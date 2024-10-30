@@ -51,7 +51,20 @@ def message(msg, color):
     dis.blit(mesg, [dis_width / 6, dis_height / 3])
 
 
-def gameLoop():
+def start_menu():
+    menu = True
+    while menu:
+        dis.fill(blue)
+        message("Press S to Start or Q to Quit", white)
+        pygame.display.update()
+
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_s:
+                    menu = False
+                if event.key == pygame.K_q:
+                    pygame.quit()
+                    quit()
     game_over = False
     game_close = False
 
