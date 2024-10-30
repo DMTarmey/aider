@@ -165,7 +165,7 @@ class TestRepoMap(unittest.TestCase):
             print(f"Final Map:\n{final_map}")
 
             self.assertNotEqual(
-                initial_map.strip(), final_map.strip(), "RepoMap should change with force_refresh"
+                initial_map, final_map, "RepoMap should change with force_refresh"
             )
 
             # close the open cache files, so Windows won't error

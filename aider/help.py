@@ -9,7 +9,7 @@ from pathlib import Path
 import importlib_resources
 
 from aider import utils
-from aider import __version__ as aider_version
+from aider import __version__
 from aider.dump import dump  # noqa: F401
 from aider.help_pats import exclude_website_pats
 
@@ -91,7 +91,7 @@ def get_index():
     )
     from llama_index.core.node_parser import MarkdownNodeParser
 
-    dname = Path.home() / ".aider" / "caches" / ("help." + aider_version)
+    dname = Path.home() / ".aider" / "caches" / ("help." + __version__)
 
     index = None
     try:
