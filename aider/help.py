@@ -9,7 +9,7 @@ from pathlib import Path
 import importlib_resources
 
 from aider import utils
-from aider.__init__ import __version__
+from aider import __version__
 from aider.dump import dump  # noqa: F401
 from aider.help_pats import exclude_website_pats
 
