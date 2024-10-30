@@ -34,7 +34,9 @@ def our_snake(snake_block, snake_list):
         pygame.draw.rect(dis, black, [x[0], x[1], snake_block, snake_block])
 
 
-def message(msg, color):
+def display_score(score):
+    value = score_font.render("Your Score: " + str(score), True, white)
+    dis.blit(value, [0, 0])
     mesg = font_style.render(msg, True, color)
     dis.blit(mesg, [dis_width / 6, dis_height / 3])
 
@@ -105,6 +107,7 @@ def gameLoop():
                 game_close = True
 
         our_snake(snake_block, snake_List)
+        display_score(Length_of_snake - 1)
 
         pygame.display.update()
 
