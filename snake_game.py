@@ -16,7 +16,8 @@ blue = (50, 153, 213)
 dis_width = 800
 dis_height = 600
 
-# Initialize display
+# Load background image
+background = pygame.image.load('battleground.png')
 dis = pygame.display.set_mode((dis_width, dis_height))
 pygame.display.set_caption('Snake Game')
 
@@ -95,7 +96,7 @@ def gameLoop():
             game_close = True
         x1 += x1_change
         y1 += y1_change
-        dis.fill(blue)
+        dis.blit(background, (0, 0))
         pygame.draw.rect(dis, green, [foodx, foody, snake_block, snake_block])
         snake_Head = []
         snake_Head.append(x1)
