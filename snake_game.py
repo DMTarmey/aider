@@ -17,7 +17,13 @@ dis_width = 800
 dis_height = 600
 
 # Load background image
-background = pygame.image.load('battleground.png')
+background_path = 'battleground.png'
+if not os.path.exists(background_path):
+    print(f"Error: '{background_path}' not found in the working directory.")
+    pygame.quit()
+    quit()
+
+background = pygame.image.load(background_path)
 dis = pygame.display.set_mode((dis_width, dis_height))
 pygame.display.set_caption('Snake Game')
 
