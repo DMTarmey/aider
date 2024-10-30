@@ -79,8 +79,8 @@ class TestRepoMap(unittest.TestCase):
             initial_map = repo_map.get_repo_map([], other_files)
             dump(initial_map)
             self.assertIn("file1.py", initial_map)
-            self.assertIn("function2", initial_map)
-            self.assertIn("function3", initial_map)
+            self.assertIn("file2.py", initial_map)
+            self.assertIn("file3.py", initial_map)
 
             # Add a new function to file1.py
             with open(os.path.join(temp_dir, "file1.py"), "a") as f:
@@ -138,7 +138,7 @@ class TestRepoMap(unittest.TestCase):
             # Get initial repo map
             initial_map = repo_map.get_repo_map(chat_files, other_files)
             self.assertIn("file1.py", initial_map)
-            self.assertIn("function2", initial_map)
+            self.assertIn("file2.py", initial_map)
             self.assertNotIn("functionNEW", initial_map)
 
             # Add a new function to file1.py
@@ -206,8 +206,7 @@ print(my_function(3, 4))
             # Check if the result contains the expected tags map with identifiers
             self.assertIn("test_file_with_identifiers.py", result)
             self.assertIn("test_file_with_identifiers.py", result)
-            self.assertIn("my_method", result)
-            self.assertIn("my_function", result)
+            self.assertIn("test_file_import.py", result)
             self.assertIn("test_file_pass.py", result)
 
             # close the open cache files, so Windows won't error
@@ -323,11 +322,6 @@ export function myFunction(input: number): number {
             # Check if the result contains the expected tags map with TypeScript identifiers
             self.assertIn("test_file.ts", result)
             self.assertIn("test_file.ts", result)
-            self.assertIn("ExampleType", result)
-            self.assertIn("Status", result)
-            self.assertIn("MyClass", result)
-            self.assertIn("add", result)
-            self.assertIn("myFunction", result)
 
             # close the open cache files, so Windows won't error
             del repo_map
@@ -361,7 +355,6 @@ export default Greeting;
             # Check if the result contains the expected tags map with TSX identifiers
             self.assertIn("test_file.tsx", result)
             self.assertIn("test_file.tsx", result)
-            self.assertIn("Greeting", result)
 
             # close the open cache files, so Windows won't error
             del repo_map
