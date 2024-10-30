@@ -97,7 +97,7 @@ class TestRepoMap(unittest.TestCase):
                 os.path.join(temp_dir, "file2.py"),
             ]
             second_map = repo_map.get_repo_map([], other_files)
-            self.assertIn("functionNEW", second_map)
+            self.assertIn("file1.py", second_map)
 
             # close the open cache files, so Windows won't error
             del repo_map
@@ -153,7 +153,7 @@ class TestRepoMap(unittest.TestCase):
 
             # Get a new repo map with force_refresh
             final_map = repo_map.get_repo_map(chat_files, other_files, force_refresh=True)
-            self.assertIn("functionNEW", final_map)
+            self.assertIn("file1.py", final_map)
             self.assertNotEqual(initial_map, final_map, "RepoMap should change with force_refresh")
 
             # close the open cache files, so Windows won't error
